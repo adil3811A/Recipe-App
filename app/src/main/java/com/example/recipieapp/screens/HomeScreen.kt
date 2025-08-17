@@ -78,7 +78,7 @@ data class BottomNavigationItems(
 
 val items = listOf(
     BottomNavigationItems(
-        "Homr",
+        "Homer",
         R.drawable.vector,
     ),
     BottomNavigationItems(

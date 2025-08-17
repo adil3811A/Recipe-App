@@ -62,7 +62,6 @@ fun mainApp(
     val backstackEntry by navController.currentBackStackEntryAsState()
     var selectedItemIndex by rememberSaveable { mutableStateOf(0) }
     LaunchedEffect(backstackEntry?.destination?.route) {
-
     }
     Scaffold(
         bottomBar = {

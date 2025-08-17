@@ -17,7 +17,7 @@ data class detailRecipe(
     val id: Int,
     val image: String,
     val imageType: String,
-    val instructions: Any,
+    val instructions: String,
     val lowFodmap: Boolean,
     val occasions: List<Any>,
     val originalId: Any,

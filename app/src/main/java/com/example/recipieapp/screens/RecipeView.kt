@@ -1,5 +1,6 @@
 package com.example.recipieapp.screens
 
+import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -46,6 +47,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.text.HtmlCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.example.recipieapp.R
@@ -77,6 +79,7 @@ fun RecipeView(
                }
            }
            is DetailRecipeUIState.Sucsess -> {
+               Log.d("Recipe", "${(uiStae.value as DetailRecipeUIState.Sucsess).detail.instructions}")
                Column(modifier = modifier
                    .verticalScroll(scroll)){
                    ImageComposable(
@@ -112,7 +115,8 @@ fun RecipeView(
                    }
                    Perragraf(
                        heading = "Instructions",
-                       bodyString = (uiStae.value as DetailRecipeUIState.Sucsess).detail.instructions.toString(),
+                       bodyString = HtmlCompat.fromHtml((uiStae.value as DetailRecipeUIState.Sucsess).detail.instructions ,
+                           HtmlCompat.FROM_HTML_MODE_LEGACY).toString(),
                    )
                    Spacer(modifier = modifier.height(20.dp))
                    LazyRow {
@@ -127,7 +131,8 @@ fun RecipeView(
                    Spacer(modifier = modifier.height(20.dp))
                    Perragraf(
                        heading = "Quick Summary",
-                       bodyString = (uiStae.value as DetailRecipeUIState.Sucsess).detail.summary
+                       bodyString = HtmlCompat.fromHtml((uiStae.value as DetailRecipeUIState.Sucsess).detail.summary ,
+                           HtmlCompat.FROM_HTML_MODE_LEGACY).toString()
                    )
                    BadExpandableCard("Bad for health nutrition",(uiStae.value as DetailRecipeUIState.Sucsess).nutritions.bad)
                    GoodExpandableCard(tital = "Good for health nutrition", list = (uiStae.value as DetailRecipeUIState.Sucsess).nutritions.good)

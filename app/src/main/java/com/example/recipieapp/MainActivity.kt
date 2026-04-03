@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.recipieapp.screens.mainApp
 import com.example.recipieapp.ui.theme.RecipieAppTheme
-
+// this somthing add for code magic
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
